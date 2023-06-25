@@ -15,4 +15,9 @@ export class UserService {
         const createdUser = new this.userModel(user);
         return createdUser.save();
     }
+
+    async getUser(userId: string): Promise<User> {
+        const user = await this.userModel.findById(userId);
+        return user;
+    }
 }

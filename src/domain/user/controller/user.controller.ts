@@ -16,4 +16,10 @@ export class UserController {
     async createUser(@Body() user: User): Promise<User> {
         return this.userService.createUser(user);
     }
+
+    @Get(':id')
+    async getUser(@Param('id') userId: string) {
+        const user = await this.userService.getUser(userId);
+        return user;
+    }
 }
