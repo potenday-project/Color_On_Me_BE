@@ -22,4 +22,10 @@ export class UserController {
         const user = await this.userService.getUser(userId);
         return user;
     }
+
+    @Patch(':id')
+    async updatePersonalColor(@Param('id') userId: string, @Body('personal_color') personalColor: string) {
+        const updatedUser = await this.userService.updatePersonalColor(userId, personalColor);
+        return updatedUser;
+    }
 }
