@@ -20,8 +20,8 @@ export class AuthController {
     async loginNaverCallback(@Req() req, @Res() res: Response) {
         const { jwtAccessToken, jwtRefreshToken } = req.user;
 
-        res.cookie('access_token', jwtAccessToken);
-        res.cookie('refresh_token', jwtRefreshToken);
+        res.cookie('accessToken', jwtAccessToken);
+        res.cookie('refreshToken', jwtRefreshToken);
 
         res.status(200).send({
             message: 'Login Success!',
@@ -33,8 +33,8 @@ export class AuthController {
     async logout(@GetCurrentUserId() userId: string, @Res() res: Response) {
         await this.authService.removeRefreshToken(userId);
 
-        res.clearCookie('access_token');
-        res.clearCookie('refresh_token');
+        res.clearCookie('accessToken');
+        res.clearCookie('refreshToken');
 
         res.status(200).send({
             message: 'Logout Success!',
@@ -53,8 +53,8 @@ export class AuthController {
         const jwtAccessToken = await this.authService.createAccessToken(userId);
         const jwtRefreshToken = await this.authService.createRefreshToken(userId);
 
-        res.cookie('access_token', jwtAccessToken);
-        res.cookie('refresh_token', jwtRefreshToken);
+        res.cookie('accessToken', jwtAccessToken);
+        res.cookie('refreshToken', jwtRefreshToken);
 
         res.sendStatus(201);
     }

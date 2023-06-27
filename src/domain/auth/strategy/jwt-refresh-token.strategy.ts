@@ -17,7 +17,7 @@ export class JwtRefreshTokenStrategy extends PassportStrategy(Strategy, 'jwt-ref
         super({
             jwtFromRequest: ExtractJwt.fromExtractors([
                 (request: Request) => {
-                    return request.headers['refresh_token'];
+                    return request.headers['refreshToken'];
                 },
             ]),
             secretOrKey: configService.get('JWT_REFRESH_TOKEN_SECRET'),
@@ -26,7 +26,7 @@ export class JwtRefreshTokenStrategy extends PassportStrategy(Strategy, 'jwt-ref
     }
 
     async validate(request: Request, payload: Payload) {
-        const refreshToken = request.headers['refresh_token'];
+        const refreshToken = request.headers['refreshToken'];
 
         if (!refreshToken) throw new UnauthorizedException('REFRESH TOKEN DOES NOT EXIST');
 
