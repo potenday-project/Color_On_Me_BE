@@ -3,9 +3,16 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { MongooseModule } from '@nestjs/mongoose';
 import { UserModule } from '../domain/user/user.module';
+import { ConfigModule } from '@nestjs/config';
+import { AuthModule } from 'src/domain/auth/auth.module';
 
 @Module({
-    imports: [MongooseModule.forRoot('mongodb://127.0.0.1:27017/local-color-on-me'), UserModule],
+    imports: [
+        MongooseModule.forRoot('mongodb://127.0.0.1:27017/local-color-on-me'),
+        AuthModule,
+        ConfigModule,
+        UserModule,
+    ],
     controllers: [AppController],
     providers: [AppService],
 })
