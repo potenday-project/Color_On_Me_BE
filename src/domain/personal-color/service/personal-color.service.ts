@@ -9,4 +9,12 @@ export class PersonalColorService {
         @InjectModel(PersonalColor.name)
         private readonly personalColorModel: Model<PersonalColor>,
     ) {}
+
+    async findAll(): Promise<PersonalColor[]> {
+        return this.personalColorModel.find().exec();
+    }
+
+    async getUserColor(code: string): Promise<PersonalColor> {
+        return await this.personalColorModel.findOne({ code });
+    }
 }
