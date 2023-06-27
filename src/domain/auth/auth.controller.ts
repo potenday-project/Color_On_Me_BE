@@ -23,10 +23,9 @@ export class AuthController {
         res.cookie('access_token', jwtAccessToken);
         res.cookie('refresh_token', jwtRefreshToken);
 
-        // TODO: 협의해서 어떤 주소로 돌려줘야할지
-        // res.redirect("/personal-color")
-
-        res.send('hii!');
+        res.status(200).send({
+            message: 'Login Success!',
+        });
     }
 
     @Get('/logout')
@@ -37,7 +36,9 @@ export class AuthController {
         res.clearCookie('access_token');
         res.clearCookie('refresh_token');
 
-        return res.sendStatus(200);
+        res.status(200).send({
+            message: 'Logout Success!',
+        });
     }
 
     @Post('/refresh')
@@ -52,9 +53,9 @@ export class AuthController {
         const jwtAccessToken = await this.authService.createAccessToken(userId);
         const jwtRefreshToken = await this.authService.createRefreshToken(userId);
 
-        res.status(200).send({
-            access_token: jwtAccessToken,
-            refresh_token: jwtRefreshToken,
-        });
+        res.cookie('access_token', jwtAccessToken);
+        res.cookie('refresh_token', jwtRefreshToken);
+
+        res.sendStatus(201);
     }
 }
