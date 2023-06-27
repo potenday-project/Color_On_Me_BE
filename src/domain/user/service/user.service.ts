@@ -25,4 +25,42 @@ export class UserService {
         const updatedUser = await this.userModel.findByIdAndUpdate(userId, { personal_color }, { new: true });
         return updatedUser;
     }
+
+    async findUserOrCreate(user: Partial<User>): Promise<User> {
+        const { naverId, email, nickname, profileImageUrl } = user;
+        const findUser = await this.userModel.findOne({ naverId, email });
+
+        if (findUser) {
+            return findUser;
+        }
+
+        return await this.createUser({
+            email,
+            naverId,
+            nickname,
+            profileImageUrl,
+        });
+    }
+
+    async updateHashRefreshToken(userId: string, hashedRefreshToken: string): Promise<void> {
+        await this.userModel.findByIdAndUpdate(
+            {
+                _id: userId,
+            },
+            {
+                currentHashedRefreshToken: hashedRefreshToken,
+            },
+        );
+    }
+
+    async removeHashRefreshToken(userId: string): Promise<void> {
+        await this.userModel.findByIdAndUpdate(
+            {
+                _id: userId,
+            },
+            {
+                currentHashedRefreshToken: null,
+            },
+        );
+    }
 }

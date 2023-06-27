@@ -5,17 +5,25 @@ export type UserDocument = User & Document;
 
 @Schema()
 export class User {
-    @Prop({ required: true })
+    _id?: string;
+
+    @Prop({ type: String, required: true })
     email: string;
 
-    @Prop({ required: true })
-    profile_image: string;
+    @Prop({ type: String, required: true })
+    naverId: string;
 
-    @Prop({ required: true })
+    @Prop({ type: String, required: true })
+    profileImageUrl: string;
+
+    @Prop({ type: String, required: true })
     nickname: string;
 
-    @Prop({ required: true })
-    personal_color: string;
+    @Prop({ type: String, required: false })
+    personalColor?: string;
+
+    @Prop({ type: String, required: false })
+    currentHashedRefreshToken?: string;
 }
 
 export const UserSchema = SchemaFactory.createForClass(User);
