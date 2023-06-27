@@ -43,7 +43,9 @@ export class AuthService {
     }
 
     async validateRefreshToken(userId: string, token: string) {
+        console.log(userId);
         const user = await this.userService.getUser(userId);
+        console.log(user);
 
         if (!user) {
             throw new NotFoundException('USER not found!');

@@ -1,4 +1,4 @@
-import { ForbiddenException, Injectable } from '@nestjs/common';
+import { Injectable, UnauthorizedException } from '@nestjs/common';
 import { PassportStrategy } from '@nestjs/passport';
 import { ExtractJwt, Strategy } from 'passport-jwt';
 import { ConfigService } from 'src/domain/config/config.service';
@@ -15,16 +15,20 @@ type Payload = {
 export class JwtRefreshTokenStrategy extends PassportStrategy(Strategy, 'jwt-refresh') {
     constructor(private readonly configService: ConfigService) {
         super({
-            jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
+            jwtFromRequest: ExtractJwt.fromExtractors([
+                (request: Request) => {
+                    return request.headers['refresh_token'];
+                },
+            ]),
             secretOrKey: configService.get('JWT_REFRESH_TOKEN_SECRET'),
             passReqToCallback: true,
         });
     }
 
-    async validate(req: Request, payload: Payload) {
-        const refreshToken = req?.get('authorization')?.replace('Bearer', '').trim();
+    async validate(request: Request, payload: Payload) {
+        const refreshToken = request.headers['refresh_token'];
 
-        if (!refreshToken) throw new ForbiddenException('REFRESH TOKEN DOES NOT EXIST');
+        if (!refreshToken) throw new UnauthorizedException('REFRESH TOKEN DOES NOT EXIST');
 
         return {
             ...payload,
