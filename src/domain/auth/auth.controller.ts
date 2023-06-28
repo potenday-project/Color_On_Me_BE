@@ -23,9 +23,7 @@ export class AuthController {
         res.cookie('accessToken', jwtAccessToken);
         res.cookie('refreshToken', jwtRefreshToken);
 
-        res.status(200).send({
-            message: 'Login Success!',
-        });
+        res.status(200).redirect('http://localhost:3000');
     }
 
     @Get('/logout')
@@ -36,9 +34,7 @@ export class AuthController {
         res.clearCookie('accessToken');
         res.clearCookie('refreshToken');
 
-        res.status(200).send({
-            message: 'Logout Success!',
-        });
+        res.status(200).redirect('http://localhost:3000/login');
     }
 
     @Post('/refresh')
