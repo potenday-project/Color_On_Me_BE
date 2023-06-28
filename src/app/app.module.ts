@@ -9,9 +9,12 @@ import { AuthModule } from 'src/domain/auth/auth.module';
 
 @Module({
     imports: [
-        MongooseModule.forRoot('mongodb://127.0.0.1:27017/local-color-on-me'),
+        ConfigModule.forRoot({
+            isGlobal: true,
+            envFilePath: process.env.NODE_ENV === 'development' ? '.env.development' : '.env.prod',
+        }),
+        MongooseModule.forRoot(process.env.MONGO_DB_URL),
         AuthModule,
-        ConfigModule,
         UserModule,
         PersonalColorModule,
     ],
