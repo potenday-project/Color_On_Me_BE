@@ -1,4 +1,6 @@
 export interface EnvConfig {
+    MONGO_DB_URL?: string;
+
     NAVER_CLIENT_ID?: string;
     NAVER_CLIENT_SECRET?: string;
     NAVER_CALLBACK_URL?: string;
