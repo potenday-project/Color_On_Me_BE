@@ -21,8 +21,8 @@ export class UserService {
         return user;
     }
 
-    async updatePersonalColor(userId: string, personal_color: string): Promise<User> {
-        const updatedUser = await this.userModel.findByIdAndUpdate(userId, { personal_color }, { new: true });
+    async updatePersonalColor(userId: string, personalColor: string): Promise<User> {
+        const updatedUser = await this.userModel.findByIdAndUpdate(userId, { personalColor }, { new: true });
         return updatedUser;
     }
 

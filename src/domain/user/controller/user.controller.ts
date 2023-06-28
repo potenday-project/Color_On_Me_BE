@@ -1,30 +1,23 @@
-import { Controller, Get, Post, Body, Param, Patch } from '@nestjs/common';
+import { Controller, Get, Body, UseGuards, Post } from '@nestjs/common';
 import { UserService } from '../service/user.service';
 import { User } from '../model/user.model';
+import { JwtAccessTokenAuthGuard } from 'src/domain/auth/guard/jwt-access-token-auth.guard';
+import { GetCurrentUserId } from 'src/domain/common/decorators/get-current-user-id.decorator';
 
 @Controller('users')
 export class UserController {
     constructor(private readonly userService: UserService) {}
 
-    @Get()
-    async getUsers(): Promise<User[]> {
-        return this.userService.getUsers();
-    }
-
-    //! 데이터 확인하기 위해 임시로 만듦
-    @Post()
-    async createUser(@Body() user: User): Promise<User> {
-        return this.userService.createUser(user);
-    }
-
-    @Get(':id')
-    async getUser(@Param('id') userId: string) {
+    @Get('')
+    @UseGuards(JwtAccessTokenAuthGuard)
+    async getUser(@GetCurrentUserId() userId: string): Promise<User> {
         const user = await this.userService.getUser(userId);
         return user;
     }
 
-    @Patch(':id')
-    async updatePersonalColor(@Param('id') userId: string, @Body('personal_color') personalColor: string) {
+    @Post('')
+    @UseGuards(JwtAccessTokenAuthGuard)
+    async updatePersonalColor(@GetCurrentUserId() userId: string, @Body('personalColor') personalColor: string) {
         const updatedUser = await this.userService.updatePersonalColor(userId, personalColor);
         return updatedUser;
     }
