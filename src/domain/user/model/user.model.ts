@@ -1,5 +1,6 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { Document } from 'mongoose';
+import { SignupType } from './enums/signup-type.enum';
 
 export type UserDocument = User & Document;
 
@@ -10,8 +11,8 @@ export class User {
     @Prop({ type: String, required: true })
     email: string;
 
-    @Prop({ type: String, required: true })
-    naverId: string;
+    @Prop({ type: String, required: false })
+    naverId?: string;
 
     @Prop({ type: String, required: true })
     profileImageUrl: string;
@@ -21,6 +22,9 @@ export class User {
 
     @Prop({ type: String, required: false })
     personalColor?: string;
+
+    @Prop({ type: String, enum: SignupType, required: true, default: SignupType['local'] })
+    signupType: SignupType;
 
     @Prop({ type: String, required: false })
     currentHashedRefreshToken?: string;

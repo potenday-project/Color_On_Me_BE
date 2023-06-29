@@ -1,33 +1,32 @@
 import { Injectable } from '@nestjs/common';
 import { PassportStrategy } from '@nestjs/passport';
-import { Strategy } from 'passport-naver-v2';
+import { Strategy } from 'passport-kakao';
 import { ConfigService } from 'src/domain/config/config.service';
 import { UserService } from 'src/domain/user/service/user.service';
 import { AuthService } from '../auth.service';
 import { SignupType } from 'src/domain/user/model/enums/signup-type.enum';
 
 @Injectable()
-export class JwtSocialNaverStrategy extends PassportStrategy(Strategy, 'naver') {
+export class JwtSocialKakaoStrategy extends PassportStrategy(Strategy, 'kakao') {
     constructor(
         private configService: ConfigService,
         private userService: UserService,
         private authService: AuthService,
     ) {
         super({
-            clientID: configService.get('NAVER_CLIENT_ID'),
-            clientSecret: configService.get('NAVER_CLIENT_SECRET'),
-            callbackURL: configService.get('NAVER_CALLBACK_URL'),
+            clientID: configService.get('KAKAO_REST_API_KEY'),
+            callbackURL: configService.get('KAKAO_CALLBACK_URL'),
         });
     }
 
     async validate(accessToken: string, refreshToken: string, profile: any, done: any) {
-        const { id: naverId, profileImage: profileImageUrl, name, email } = profile;
+        const { email } = profile._json.kakao_account;
+        const { nickname, profile_image } = profile._json.properties;
         const user = await this.userService.findUserOrCreate({
-            naverId,
-            profileImageUrl,
-            name,
+            profileImageUrl: profile_image,
+            name: nickname,
             email,
-            signupType: SignupType['naver'],
+            signupType: SignupType['kakao'],
         });
 
         const jwtAccessToken = await this.authService.createAccessToken(user._id);
