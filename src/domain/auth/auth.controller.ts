@@ -1,4 +1,4 @@
-import { Controller, Get, Res, UseGuards, Req, Post, Body } from '@nestjs/common';
+import { Controller, Get, Res, UseGuards, Req, Post, Body, ValidationPipe } from '@nestjs/common';
 import { Response, Request } from 'express';
 import { NaverAuthGuard } from './guard/naver-auth.guard';
 import { JwtAccessTokenAuthGuard } from './guard/jwt-access-token-auth.guard';
@@ -14,7 +14,7 @@ export class AuthController {
     constructor(private readonly authService: AuthService) {}
 
     @Post('signup')
-    async signUp(@Body() signUpDto: SignUpDto) {
+    async signUp(@Body(ValidationPipe) signUpDto: SignUpDto) {
         return await this.authService.signUp(signUpDto);
     }
 
