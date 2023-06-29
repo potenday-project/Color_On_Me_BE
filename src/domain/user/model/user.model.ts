@@ -17,7 +17,7 @@ export class User {
     profileImageUrl: string;
 
     @Prop({ type: String, required: true })
-    nickname: string;
+    name: string;
 
     @Prop({ type: String, required: false })
     personalColor?: string;

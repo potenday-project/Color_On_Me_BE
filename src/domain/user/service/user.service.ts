@@ -27,7 +27,7 @@ export class UserService {
     }
 
     async findUserOrCreate(user: Partial<User>): Promise<User> {
-        const { naverId, email, nickname, profileImageUrl } = user;
+        const { naverId, email, name, profileImageUrl } = user;
         const findUser = await this.userModel.findOne({ naverId, email });
 
         if (findUser) {
@@ -37,7 +37,7 @@ export class UserService {
         return await this.createUser({
             email,
             naverId,
-            nickname,
+            name,
             profileImageUrl,
         });
     }
