@@ -15,7 +15,7 @@ export class PersonalColorController {
 
     @Get('/:code')
     @UseGuards(JwtAccessTokenAuthGuard)
-    async getUserColor(@Param('code') code: string): Promise<PersonalColor> {
+    async getPersonalColor(@Param('code') code: string) {
         const personalColor = await this.personalColorService.getPersonalColor(code);
         if (!personalColor) {
             throw new NotFoundException('Personal Color not found');
