@@ -1,0 +1,217 @@
+[
+    {
+        "code": "SW_LG",
+        "name": "봄 웜 라이트",
+        "colors": [
+            { "name": "카네이션 핑크", "code": "SW_LG_CL1", "r": 251, "g": 208, "b": 215 },
+            { "name": "페퍼민트", "code": "SW_LG_CL2", "r": 233, "g": 247, "b": 230 },
+            { "name": "트로피칼블루", "code": "SW_LG_CL3", "r": 210, "g": 238, "b": 250 },
+            { "name": "파리 데이지", "code": "SW_LG_CL6", "r": 255, "g": 244, "b": 110 },
+            { "name": "옐로우 그린", "code": "SW_LG_CL7", "r": 197, "g": 225, "b": 122 },
+            { "name": "폴라", "code": "SW_LG_CL4", "r": 233, "g": 247, "b": 250 },
+            { "name": "샴페인", "code": "SW_LG_CL5", "r": 250, "g": 236, "b": 204 }
+        ],
+        "moods": [
+            { "name": "#청순한", "code": "SW_LG_MD1" },
+            { "name": "#은은한", "code": "SW_LG_MD2" },
+            { "name": "#가벼운", "code": "SW_LG_MD3" }
+        ]
+    },
+    {
+        "code": "SW_CL",
+        "name": "봄 웜 클리어",
+        "colors": [
+            { "name": "플라밍고", "code": "SW_CL_CL1", "r": 244, "g": 78, "b": 42 },
+            { "name": "머쉬룸 플러쉬", "code": "SW_CL_CL2", "r": 195, "g": 33, "b": 72 },
+            { "name": "로얄 블루", "code": "SW_CL_CL3", "r": 65, "g": 105, "b": 225 },
+            { "name": "바나나 마니아", "code": "SW_CL_CL6", "r": 251, "g": 231, "b": 178 },
+            { "name": "브라이트 썬", "code": "SW_CL_CL5", "r": 254, "g": 211, "b": 60 },
+            { "name": "샤또 그린", "code": "SW_CL_CL4", "r": 64, "g": 168, "b": 96 },
+            { "name": "레몬", "code": "SW_CL_CL7", "r": 253, "g": 254, "b": 101 }
+        ],
+        "moods": [
+            { "name": "#선명한", "code": "SW_CL_MD1" },
+            { "name": "#또렷한", "code": "SW_CL_MD2" },
+            { "name": "#화사한", "code": "SW_CL_MD3" }
+        ]
+    },
+    {
+        "code": "SW_ST",
+        "name": "봄 웜 스트롱",
+        "colors": [
+            { "name": "썬더버드", "code": "SW_ST_CL1", "r": 192, "g": 43, "b": 24 },
+            { "name": "풀", "code": "SW_ST_CL2", "r": 117, "g": 166, "b": 74 },
+            { "name": "다저 블루", "code": "SW_ST_CL3", "r": 30, "g": 144, "b": 255 },
+            { "name": "머스타드", "code": "SW_ST_CL6", "r": 255, "g": 219, "b": 88 },
+            { "name": "자주", "code": "SW_ST_CL5", "r": 128, "g": 31, "b": 82 },
+            { "name": "펌킨", "code": "SW_ST_CL4", "r": 255, "g": 117, "b": 24 },
+            { "name": "코니퍼", "code": "SW_ST_CL7", "r": 172, "g": 221, "b": 77 }
+        ],
+        "moods": [
+            { "name": "#강렬한", "code": "SW_ST_MD1" },
+            { "name": "#뜨거운", "code": "SW_ST_MD2" },
+            { "name": "#화려한", "code": "SW_ST_MD3" }
+        ]
+    },
+    {
+        "code": "SC_LG",
+        "name": "여름 쿨 라이트",
+        "colors": [
+            { "name": "샹티", "code": "SC_LG_CL2", "r": 248, "g": 195, "b": 223 },
+            { "name": "콘 필드", "code": "SC_LG_CL1", "r": 248, "g": 250, "b": 205 },
+            { "name": "스펀 펄", "code": "SC_LG_CL3", "r": 170, "g": 171, "b": 183 },
+            { "name": "콜드 터키", "code": "SC_LG_CL4", "r": 206, "g": 186, "b": 186 },
+            { "name": "화려한 장미", "code": "SC_LG_CL6", "r": 246, "g": 83, "b": 166 },
+            { "name": "아이보리", "code": "SC_LG_CL7", "r": 254, "g": 255, "b": 249 },
+            { "name": "서프 크레스트", "code": "SC_LG_CL5", "r": 207, "g": 229, "b": 210 }
+        ],
+        "moods": [
+            { "name": "#시원한", "code": "SC_LG_MD1" },
+            { "name": "#상큼한", "code": "SC_LG_MD2" },
+            { "name": "#청초한", "code": "SC_LG_MD3" }
+        ]
+    },
+    {
+        "code": "SC_CL",
+        "name": "여름 쿨 클리어",
+        "colors": [
+            { "name": "헬리오트로프", "code": "SC_CL_CL1", "r": 223, "g": 115, "b": 255 },
+            { "name": "콘크리트", "code": "SC_CL_CL2", "r": 242, "g": 242, "b": 242 },
+            { "name": "블루 리본", "code": "SC_CL_CL3", "r": 0, "g": 102, "b": 255 },
+            { "name": "청록", "code": "SC_CL_CL4", "r": 48, "g": 213, "b": 200 },
+            { "name": "스타쉽", "code": "SC_CL_CL5", "r": 236, "g": 242, "b": 69 },
+            { "name": "마젠타", "code": "SC_CL_CL6", "r": 255, "g": 51, "b": 153 },
+            { "name": "호크스 블루", "code": "SC_CL_CL7", "r": 212, "g": 226, "b": 252 }
+        ],
+        "moods": [
+            { "name": "#청량한", "code": "SC_CL_MD1" },
+            { "name": "#생생한", "code": "SC_CL_MD2" },
+            { "name": "#깨끗한", "code": "SC_CL_MD3" }
+        ]
+    },
+    {
+        "code": "SC_MT",
+        "name": "여름 쿨 뮤트",
+        "colors": [
+            { "name": "마운트배튼 핑크", "code": "SC_MT_CL1", "r": 153, "g": 122, "b": 141 },
+            { "name": "알토", "code": "SC_MT_CL2", "r": 219, "g": 219, "b": 219 },
+            { "name": "쉽 코브", "code": "SC_MT_CL3", "r": 120, "g": 139, "b": 186 },
+            { "name": "더스티 그레이", "code": "SC_MT_CL4", "r": 168, "g": 152, "b": 155 },
+            { "name": "리젠트 그레이", "code": "SC_MT_CL5", "r": 134, "g": 148, "b": 159 },
+            { "name": "비올라", "code": "SC_MT_CL6", "r": 203, "g": 143, "b": 169 },
+            { "name": "고스트", "code": "SC_MT_CL7", "r": 199, "g": 201, "b": 213 }
+        ],
+        "moods": [
+            { "name": "#지적인", "code": "SC_MT_MD1" },
+            { "name": "#성숙한", "code": "SC_MT_MD2" },
+            { "name": "#우아한", "code": "SC_MT_MD3" }
+        ]
+    },
+    {
+        "code": "FW_MT",
+        "name": "가을 웜 뮤트",
+        "colors": [
+            { "name": "버닝 샌드", "code": "FW_MT_CL1", "r": 217, "g": 147, "b": 118 },
+            { "name": "앤잭", "code": "FW_MT_CL2", "r": 224, "g": 182, "b": 70 },
+            { "name": "레더", "code": "FW_MT_CL3", "r": 150, "g": 112, "b": 89 },
+            { "name": "구리", "code": "FW_MT_CL4", "r": 160, "g": 83, "b": 75 },
+            { "name": "클레이 크릭", "code": "FW_MT_CL5", "r": 138, "g": 131, "b": 96 },
+            { "name": "향나무", "code": "FW_MT_CL6", "r": 109, "g": 146, "b": 146 },
+            { "name": "그레이 아스파라거스", "code": "FW_MT_CL7", "r": 70, "g": 89, "b": 69 }
+        ],
+        "moods": [
+            { "name": "#편안한", "code": "FW_MT_MD1" },
+            { "name": "#차분한", "code": "FW_MT_MD2" },
+            { "name": "#따뜻한", "code": "FW_MT_MD3" }
+        ]
+    },
+    {
+        "code": "FW_TR",
+        "name": "가을 웜 트루",
+        "colors": [
+            { "name": "코냑", "code": "FW_TR_CL1", "r": 159, "g": 56, "b": 29 },
+            { "name": "열대우림", "code": "FW_TR_CL2", "r": 0, "g": 117, "b": 94 },
+            { "name": "감", "code": "FW_TR_CL3", "r": 212, "g": 96, "b": 59 },
+            { "name": "포터스 클레이", "code": "FW_TR_CL4", "r": 140, "g": 87, "b": 56 },
+            { "name": "올드 골드", "code": "FW_TR_CL5", "r": 207, "g": 181, "b": 59 },
+            { "name": "라이노", "code": "FW_TR_CL6", "r": 46, "g": 63, "b": 98 },
+            { "name": "룩소르 골드", "code": "FW_TR_CL7", "r": 167, "g": 136, "b": 44 }
+        ],
+        "moods": [
+            { "name": "#그윽한", "code": "FW_TR_MD1" },
+            { "name": "#내추럴", "code": "FW_TR_MD2" },
+            { "name": "#앤틱한", "code": "FW_TR_MD3" }
+        ]
+    },
+    {
+        "code": "FW_DP",
+        "name": "가을 웜 딥",
+        "colors": [
+            { "name": "토템 폴", "code": "FW_DP_CL1", "r": 153, "g": 27, "b": 7 },
+            { "name": "옐로우 메탈", "code": "FW_DP_CL2", "r": 113, "g": 99, "b": 56 },
+            { "name": "번팅", "code": "FW_DP_CL3", "r": 21, "g": 31, "b": 76 },
+            { "name": "삼나무", "code": "FW_DP_CL4", "r": 113, "g": 26, "b": 0 },
+            { "name": "터틀 그린", "code": "FW_DP_CL5", "r": 42, "g": 56, "b": 11 },
+            { "name": "브라운", "code": "FW_DP_CL7", "r": 89, "g": 40, "b": 4 }
+        ],
+        "moods": [
+            { "name": "#고혹적", "code": "FW_DP_MD1" },
+            { "name": "#섹시한", "code": "FW_DP_MD2" },
+            { "name": "#매트한", "code": "FW_DP_MD3" }
+        ]
+    },
+    {
+        "code": "WC_ST",
+        "name": "겨울 쿨 스트롱",
+        "colors": [
+            { "name": "쇼킹 핑크", "code": "WC_ST_CL1", "r": 252, "g": 15, "b": 192 },
+            { "name": "옐로우", "code": "WC_ST_CL2", "r": 255, "g": 255, "b": 0 },
+            { "name": "다크 블루", "code": "WC_ST_CL3", "r": 0, "g": 0, "b": 200 },
+            { "name": "와일드 샌드", "code": "WC_ST_CL4", "r": 244, "g": 244, "b": 244 },
+            { "name": "커드 그레이", "code": "WC_ST_CL5", "r": 11, "g": 11, "b": 11 },
+            { "name": "다크 오키드", "code": "WC_ST_CL6", "r": 153, "g": 50, "b": 204 },
+            { "name": "산 초원", "code": "WC_ST_CL7", "r": 26, "g": 179, "b": 133 }
+        ],
+        "moods": [
+            { "name": "#차가운", "code": "WC_ST_MD1" },
+            { "name": "#뚜렷한", "code": "WC_ST_MD2" },
+            { "name": "#도시적", "code": "WC_ST_MD3" }
+        ]
+    },
+    {
+        "code": "WC_TR",
+        "name": "겨울 쿨 트루",
+        "colors": [
+            { "name": "핑크 레이스", "code": "WC_TR_CL1", "r": 255, "g": 221, "b": 244 },
+            { "name": "새벽", "code": "WC_TR_CL2", "r": 166, "g": 162, "b": 154 },
+            { "name": "말리부", "code": "WC_TR_CL3", "r": 125, "g": 200, "b": 247 },
+            { "name": "에덴", "code": "WC_TR_CL4", "r": 16, "g": 88, "b": 82 },
+            { "name": "푸에르토 리코", "code": "WC_TR_CL5", "r": 63, "g": 193, "b": 170 },
+            { "name": "클라우드 버스트", "code": "WC_TR_CL6", "r": 32, "g": 46, "b": 84 },
+            { "name": "아테네 그레이", "code": "WC_TR_CL7", "r": 238, "g": 240, "b": 243 }
+        ],
+        "moods": [
+            { "name": "#상쾌한", "code": "WC_TR_MD1" },
+            { "name": "#깔끔한", "code": "WC_TR_MD2" },
+            { "name": "#세련된", "code": "WC_TR_MD3" }
+        ]
+    },
+    {
+        "code": "WC_DP",
+        "name": "겨울 쿨 딥",
+        "colors": [
+            { "name": "캐논 핑크", "code": "WC_DP_CL1", "r": 137, "g": 67, "b": 103 },
+            { "name": "블랙", "code": "WC_DP_CL2", "r": 0, "g": 0, "b": 0 },
+            { "name": "나이트 샤즈", "code": "WC_DP_CL3", "r": 170, "g": 55, "b": 90 },
+            { "name": "톰 썸", "code": "WC_DP_CL4", "r": 63, "g": 88, "b": 59 },
+            { "name": "민스크", "code": "WC_DP_CL5", "r": 63, "g": 48, "b": 127 },
+            { "name": "와인 베리", "code": "WC_DP_CL6", "r": 89, "g": 29, "b": 53 },
+            { "name": "루나 그린", "code": "WC_DP_CL7", "r": 60, "g": 73, "b": 58 }
+        ],
+        "moods": [
+            { "name": "#도도한", "code": "WC_DP_MD1" },
+            { "name": "#시크한", "code": "WC_DP_MD2" },
+            { "name": "#중후한", "code": "WC_DP_MD3" }
+        ]
+    }
+]

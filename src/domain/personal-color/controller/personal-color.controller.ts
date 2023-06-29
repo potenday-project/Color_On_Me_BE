@@ -1,4 +1,4 @@
-import { Controller, Get, NotFoundException, Param, UseGuards } from '@nestjs/common';
+import { Controller, Get, Post, NotFoundException, Param, UseGuards } from '@nestjs/common';
 import { JwtAccessTokenAuthGuard } from 'src/domain/auth/guard/jwt-access-token-auth.guard';
 import { PersonalColorService } from '../service/personal-color.service';
 import { PersonalColor } from '../model/personal-color.model';
@@ -22,5 +22,10 @@ export class PersonalColorController {
         }
 
         return personalColor;
+    }
+
+    @Post('create-color-data')
+    async createColorData(): Promise<void> {
+        await this.personalColorService.createColorData();
     }
 }
