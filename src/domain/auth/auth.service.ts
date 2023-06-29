@@ -7,6 +7,7 @@ import { SignUpDto } from './dto/signup.dto';
 import { Model } from 'mongoose';
 import { InjectModel } from '@nestjs/mongoose';
 import { User, UserDocument } from '../user/model/user.model';
+import * as bcrypt from 'bcrypt';
 
 @Injectable()
 export class AuthService {
@@ -21,13 +22,13 @@ export class AuthService {
     async signUp(signUpDto: SignUpDto): Promise<User> {
         const { email, password, nickname } = signUpDto;
         const existingUser = await this.userModel.findOne({ email }).exec();
-        console.log('🚀  file: auth.service.ts:24  existingUser:', existingUser);
         if (existingUser) {
             throw new Error('이메일이 이미 존재합니다.');
         }
-        console.log('123');
 
-        const user = new this.userModel({ email, password, name: nickname });
+        const salt = await bcrypt.genSalt();
+        const hashedPassword = await bcrypt.hash(password, salt);
+        const user = new this.userModel({ email, password: hashedPassword, name: nickname });
         return await user.save();
     }
 
