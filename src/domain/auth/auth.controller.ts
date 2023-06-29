@@ -55,16 +55,13 @@ export class AuthController {
         res.sendStatus(201);
     }
 
-    @Get('user/me')
+    @Get('/user/me')
     async userMe(@Req() req: Request, @Res() res: Response) {
         const accessToken = req?.cookies['accessToken'];
-        if (!accessToken) {
-            res.status(401).redirect('http://localhost:3000/login');
-        }
-
         const refreshToken = req?.cookies['refreshToken'];
-        if (!refreshToken) {
-            res.status(401).redirect('http://localhost:3000/login');
+
+        if (!accessToken || !refreshToken) {
+            return res.sendStatus(401);
         }
 
         res.status(200).send({
