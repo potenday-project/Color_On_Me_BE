@@ -24,7 +24,7 @@ export class AuthController {
         res.cookie('accessToken', jwtAccessToken);
         res.cookie('refreshToken', jwtRefreshToken);
 
-        res.status(200).redirect('http://localhost:3000');
+        res.status(200).redirect('https://color-on-me-fe.vercel.app/');
     }
 
     @Get('/login/kakao')
@@ -39,7 +39,7 @@ export class AuthController {
         res.cookie('accessToken', jwtAccessToken);
         res.cookie('refreshToken', jwtRefreshToken);
 
-        res.status(200).redirect('http://localhost:3000');
+        res.status(200).redirect('https://color-on-me-fe.vercel.app/');
     }
 
     @Get('/logout')
@@ -50,7 +50,7 @@ export class AuthController {
         res.clearCookie('accessToken');
         res.clearCookie('refreshToken');
 
-        res.status(200).redirect('http://localhost:3000/login');
+        res.status(200).redirect('https://color-on-me-fe.vercel.app/login');
     }
 
     @Post('/refresh')
