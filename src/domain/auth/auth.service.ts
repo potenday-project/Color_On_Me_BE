@@ -1,4 +1,4 @@
-import { ForbiddenException, Injectable, NotFoundException } from '@nestjs/common';
+import { ConflictException, ForbiddenException, Injectable, NotFoundException } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
 import { ConfigService } from '../config/config.service';
 import { compare, hash } from 'bcrypt';
@@ -23,7 +23,7 @@ export class AuthService {
         const { email, password, nickname } = signUpDto;
         const existingUser = await this.userModel.findOne({ email }).exec();
         if (existingUser) {
-            throw new Error('이메일이 이미 존재합니다.');
+            throw new ConflictException('이메일이 이미 존재합니다.');
         }
 
         const salt = await bcrypt.genSalt();
