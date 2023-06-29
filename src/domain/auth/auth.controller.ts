@@ -1,5 +1,5 @@
 import { Controller, Get, Res, UseGuards, Req, Post } from '@nestjs/common';
-import { Response } from 'express';
+import { Response, Request } from 'express';
 import { NaverAuthGuard } from './guard/naver-auth.guard';
 import { JwtAccessTokenAuthGuard } from './guard/jwt-access-token-auth.guard';
 import { JwtRefreshTokenAuthGuard } from './guard/jwt-refresh-token-auth.guard';
@@ -53,5 +53,22 @@ export class AuthController {
         res.cookie('refreshToken', jwtRefreshToken);
 
         res.sendStatus(201);
+    }
+
+    @Get('user/me')
+    async userMe(@Req() req: Request, @Res() res: Response) {
+        const accessToken = req?.cookies['accessToken'];
+        if (!accessToken) {
+            res.status(401).redirect('http://localhost:3000/login');
+        }
+
+        const refreshToken = req?.cookies['refreshToken'];
+        if (!refreshToken) {
+            res.status(401).redirect('http://localhost:3000/login');
+        }
+
+        res.status(200).send({
+            message: 'User Me!',
+        });
     }
 }
