@@ -6,6 +6,7 @@ import { JwtRefreshTokenAuthGuard } from './guard/jwt-refresh-token-auth.guard';
 import { AuthService } from './auth.service';
 import { GetCurrentUserId } from '../common/decorators/get-current-user-id.decorator';
 import { GetCurrentUser } from '../common/decorators/get-current-user.decorator';
+import { KakaoAuthGuard } from './guard/kakao-auth.guard';
 
 @Controller('auth')
 export class AuthController {
@@ -18,6 +19,21 @@ export class AuthController {
     @Get('/login/naver/callback')
     @UseGuards(NaverAuthGuard)
     async loginNaverCallback(@Req() req, @Res() res: Response) {
+        const { jwtAccessToken, jwtRefreshToken } = req.user;
+
+        res.cookie('accessToken', jwtAccessToken);
+        res.cookie('refreshToken', jwtRefreshToken);
+
+        res.status(200).redirect('http://localhost:3000');
+    }
+
+    @Get('/login/kakao')
+    @UseGuards(KakaoAuthGuard)
+    async loginKakao() {}
+
+    @Get('/login/kakao/callback')
+    @UseGuards(KakaoAuthGuard)
+    async loginKakaoCallback(@Req() req, @Res() res: Response) {
         const { jwtAccessToken, jwtRefreshToken } = req.user;
 
         res.cookie('accessToken', jwtAccessToken);
