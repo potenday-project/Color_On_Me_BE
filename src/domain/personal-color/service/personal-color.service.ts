@@ -14,7 +14,7 @@ export class PersonalColorService {
         return this.personalColorModel.find().exec();
     }
 
-    async getUserColor(code: string): Promise<PersonalColor> {
+    async getPersonalColor(code: string): Promise<PersonalColor> {
         return await this.personalColorModel.findOne({ code });
     }
 }
