@@ -1,16 +1,36 @@
-import { ForbiddenException, Injectable, NotFoundException } from '@nestjs/common';
+import { ConflictException, ForbiddenException, Injectable, NotFoundException } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
 import { ConfigService } from '../config/config.service';
 import { compare, hash } from 'bcrypt';
 import { UserService } from '../user/service/user.service';
+import { SignUpDto } from './dto/signup.dto';
+import { Model } from 'mongoose';
+import { InjectModel } from '@nestjs/mongoose';
+import { User, UserDocument } from '../user/model/user.model';
+import * as bcrypt from 'bcrypt';
 
 @Injectable()
 export class AuthService {
     constructor(
+        @InjectModel(User.name) private readonly userModel: Model<UserDocument>,
         private jwtService: JwtService,
         private configService: ConfigService,
         private userService: UserService,
     ) {}
+
+    // 로컬 회원가입
+    async signUp(signUpDto: SignUpDto): Promise<User> {
+        const { email, password, nickname } = signUpDto;
+        const existingUser = await this.userModel.findOne({ email }).exec();
+        if (existingUser) {
+            throw new ConflictException('이메일이 이미 존재합니다.');
+        }
+
+        const salt = await bcrypt.genSalt();
+        const hashedPassword = await bcrypt.hash(password, salt);
+        const user = new this.userModel({ email, password: hashedPassword, name: nickname });
+        return await user.save();
+    }
 
     async createAccessToken(userId: string): Promise<string> {
         const payload = {

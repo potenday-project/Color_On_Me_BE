@@ -1,4 +1,4 @@
-import { Controller, Get, Res, UseGuards, Req, Post } from '@nestjs/common';
+import { Controller, Get, Res, UseGuards, Req, Post, Body, ValidationPipe } from '@nestjs/common';
 import { Response, Request } from 'express';
 import { NaverAuthGuard } from './guard/naver-auth.guard';
 import { JwtAccessTokenAuthGuard } from './guard/jwt-access-token-auth.guard';
@@ -7,10 +7,16 @@ import { AuthService } from './auth.service';
 import { GetCurrentUserId } from '../common/decorators/get-current-user-id.decorator';
 import { GetCurrentUser } from '../common/decorators/get-current-user.decorator';
 import { KakaoAuthGuard } from './guard/kakao-auth.guard';
+import { SignUpDto } from './dto/signup.dto';
 
 @Controller('auth')
 export class AuthController {
     constructor(private readonly authService: AuthService) {}
+
+    @Post('signup')
+    async signUp(@Body(ValidationPipe) signUpDto: SignUpDto) {
+        return await this.authService.signUp(signUpDto);
+    }
 
     @Get('/login/naver')
     @UseGuards(NaverAuthGuard)

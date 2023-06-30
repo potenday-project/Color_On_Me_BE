@@ -14,7 +14,7 @@ export class User {
     @Prop({ type: String, required: false })
     naverId?: string;
 
-    @Prop({ type: String, required: true })
+    @Prop({ type: String, default: '' })
     profileImageUrl: string;
 
     @Prop({ type: String, required: true })
