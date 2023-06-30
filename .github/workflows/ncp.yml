@@ -1,0 +1,38 @@
+name: Deploy to NCP
+
+on:
+    pull_request:
+        types: [closed]
+        branches:
+            - main
+            - develop
+
+jobs:
+    deploy:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout code
+                uses: actions/checkout@v2
+                with:
+                    ref: ${{ github.event.pull_request.head.ref }}
+
+            - name: Install Node.js and NPM
+                uses: actions/setup-node@v2
+                with:
+                    node-version: '18.x'
+
+            - name: Connect to NCP
+                if: github.event.pull_request.merged == true
+                uses: appleboy/ssh-action@v0.1.10
+                with:
+                    host: ${{ secrets.HOST }}
+                    username: ${{ secrets.USERNAME }}
+                    password: ${{ secrets.PASSWORD }}
+                    port: ${{ secrets.PORT }}
+                    script: |
+                        cd Color_On_Me_BE
+                        git checkout ${{ github.event.pull_request.base.ref }}
+                        git pull origin ${{ github.event.pull_request.base.ref }}
+                        npm i
+                        npm run build
+                        pm2 reload all
