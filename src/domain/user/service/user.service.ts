@@ -21,14 +21,18 @@ export class UserService {
         return user;
     }
 
+    async getUserByEmail(email: string): Promise<User> {
+        return await this.userModel.findOne({ email }).exec();
+    }
+
     async updatePersonalColor(userId: string, personalColor: string): Promise<User> {
         const updatedUser = await this.userModel.findByIdAndUpdate(userId, { personalColor }, { new: true });
         return updatedUser;
     }
 
     async findUserOrCreate(user: Partial<User>): Promise<User> {
-        const { naverId, email, name, profileImageUrl, signupType } = user;
-        const findUser = await this.userModel.findOne({ naverId, email });
+        const { email, nickname, profileImageUrl, signupType } = user;
+        const findUser = await this.userModel.findOne({ email });
 
         if (findUser) {
             return findUser;
@@ -36,8 +40,7 @@ export class UserService {
 
         return await this.createUser({
             email,
-            naverId,
-            name,
+            nickname,
             profileImageUrl,
             signupType,
         });

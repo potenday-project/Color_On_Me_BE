@@ -1,4 +1,4 @@
-import { Controller, Get, Res, UseGuards, Req, Post, Body, ValidationPipe } from '@nestjs/common';
+import { Controller, Get, Res, UseGuards, Req, Post, Body } from '@nestjs/common';
 import { Response, Request } from 'express';
 import { NaverAuthGuard } from './guard/naver-auth.guard';
 import { JwtAccessTokenAuthGuard } from './guard/jwt-access-token-auth.guard';
@@ -8,14 +8,44 @@ import { GetCurrentUserId } from '../common/decorators/get-current-user-id.decor
 import { GetCurrentUser } from '../common/decorators/get-current-user.decorator';
 import { KakaoAuthGuard } from './guard/kakao-auth.guard';
 import { SignUpDto } from './dto/signup.dto';
+import { LoginDto } from './dto/login.dto';
+import { CheckEmailDto } from './dto/check-email.dto';
 
 @Controller('auth')
 export class AuthController {
     constructor(private readonly authService: AuthService) {}
 
-    @Post('signup')
-    async signUp(@Body(ValidationPipe) signUpDto: SignUpDto) {
-        return await this.authService.signUp(signUpDto);
+    @Post('/email-check')
+    async checkEmailDuplicate(@Res() res: Response, @Body() emailCheckDto: CheckEmailDto) {
+        await this.authService.validateEmail(emailCheckDto);
+
+        return res.status(200).send({
+            message: '중복되는 이메일이 없습니다.',
+        });
+    }
+
+    @Post('/signup')
+    async signUp(@Res() res: Response, @Body() signUpDto: SignUpDto) {
+        await this.authService.validateSignup(signUpDto);
+
+        await this.authService.signUp(signUpDto);
+
+        return res.status(201).send({
+            message: '회원가입을 축하드립니다',
+        });
+    }
+
+    @Post('/login')
+    async login(@Res() res: Response, @Body() loginDto: LoginDto) {
+        const user = await this.authService.validateLogin(loginDto);
+
+        const jwtAccessToken = await this.authService.createAccessToken(user._id);
+        const jwtRefreshToken = await this.authService.createRefreshToken(user._id);
+
+        res.cookie('accessToken', jwtAccessToken);
+        res.cookie('refreshToken', jwtRefreshToken);
+
+        return res.sendStatus(200);
     }
 
     @Get('/login/naver')
@@ -30,7 +60,7 @@ export class AuthController {
         res.cookie('accessToken', jwtAccessToken);
         res.cookie('refreshToken', jwtRefreshToken);
 
-        res.status(200).redirect('https://color-on-me-fe.vercel.app/');
+        res.status(200).redirect('http://localhost:3000/');
     }
 
     @Get('/login/kakao')
@@ -56,7 +86,7 @@ export class AuthController {
         res.clearCookie('accessToken');
         res.clearCookie('refreshToken');
 
-        res.status(200).redirect('https://color-on-me-fe.vercel.app/login');
+        res.status(200).redirect('http://localhost:3000/login');
     }
 
     @Post('/refresh')

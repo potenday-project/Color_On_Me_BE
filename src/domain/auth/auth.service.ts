@@ -1,4 +1,13 @@
-import { ConflictException, ForbiddenException, Injectable, NotFoundException } from '@nestjs/common';
+import {
+    BadRequestException,
+    ConflictException,
+    ForbiddenException,
+    HttpException,
+    HttpStatus,
+    Injectable,
+    NotFoundException,
+    UnauthorizedException,
+} from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
 import { ConfigService } from '../config/config.service';
 import { compare, hash } from 'bcrypt';
@@ -8,6 +17,9 @@ import { Model } from 'mongoose';
 import { InjectModel } from '@nestjs/mongoose';
 import { User, UserDocument } from '../user/model/user.model';
 import * as bcrypt from 'bcrypt';
+import { LoginDto } from './dto/login.dto';
+import { SignupType } from '../user/model/enums/signup-type.enum';
+import { CheckEmailDto } from './dto/check-email.dto';
 
 @Injectable()
 export class AuthService {
@@ -18,17 +30,58 @@ export class AuthService {
         private userService: UserService,
     ) {}
 
-    // 로컬 회원가입
-    async signUp(signUpDto: SignUpDto): Promise<User> {
-        const { email, password, nickname } = signUpDto;
+    async validateEmail(emailCheckDto: CheckEmailDto) {
+        const { email } = emailCheckDto;
+
+        const user = await this.userService.getUserByEmail(email);
+        if (user) {
+            throw new HttpException('중복되는 이메일이 존재합니다.', HttpStatus.CONFLICT);
+        }
+
+        return true;
+    }
+
+    async validateLogin(loginDto: LoginDto) {
+        const { email, password } = loginDto;
+        const user = await this.userModel.findOne({ email }).exec();
+        if (!user) {
+            throw new NotFoundException('계정이 존재하지 않습니다!');
+        }
+
+        const passwordCompareResult = await bcrypt.compare(password, user.password);
+        if (!passwordCompareResult) {
+            throw new UnauthorizedException('비밀번호가 일치하지 않습니다');
+        }
+
+        return user;
+    }
+
+    async validateSignup(signUpDto: SignUpDto) {
+        const { email, password, passwordConfirm } = signUpDto;
+
         const existingUser = await this.userModel.findOne({ email }).exec();
         if (existingUser) {
             throw new ConflictException('이메일이 이미 존재합니다.');
         }
 
+        if (password !== passwordConfirm) {
+            throw new BadRequestException('비밀번호와 비밀번호 확인이 서로 다릅니다.');
+        }
+
+        return true;
+    }
+
+    async signUp(signUpDto: SignUpDto): Promise<User> {
+        const { email, password, nickname } = signUpDto;
+
         const salt = await bcrypt.genSalt();
         const hashedPassword = await bcrypt.hash(password, salt);
-        const user = new this.userModel({ email, password: hashedPassword, name: nickname });
+        const user = new this.userModel({
+            email,
+            password: hashedPassword,
+            nickname,
+            signupType: SignupType['local'],
+        });
         return await user.save();
     }
 

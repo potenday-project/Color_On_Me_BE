@@ -21,11 +21,10 @@ export class JwtSocialNaverStrategy extends PassportStrategy(Strategy, 'naver') 
     }
 
     async validate(accessToken: string, refreshToken: string, profile: any, done: any) {
-        const { id: naverId, profileImage: profileImageUrl, name, email } = profile;
+        const { profileImage, name, email } = profile;
         const user = await this.userService.findUserOrCreate({
-            naverId,
-            profileImageUrl,
-            name,
+            profileImageUrl: profileImage,
+            nickname: name,
             email,
             signupType: SignupType['naver'],
         });

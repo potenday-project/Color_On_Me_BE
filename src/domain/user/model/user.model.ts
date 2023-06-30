@@ -4,7 +4,7 @@ import { SignupType } from './enums/signup-type.enum';
 
 export type UserDocument = User & Document;
 
-@Schema()
+@Schema({ timestamps: true })
 export class User {
     _id?: string;
 
@@ -12,13 +12,13 @@ export class User {
     email: string;
 
     @Prop({ type: String, required: false })
-    naverId?: string;
+    password?: string;
 
     @Prop({ type: String, default: '' })
     profileImageUrl: string;
 
     @Prop({ type: String, required: true })
-    name: string;
+    nickname: string;
 
     @Prop({ type: String, required: false })
     personalColor?: string;
@@ -28,6 +28,9 @@ export class User {
 
     @Prop({ type: String, required: false })
     currentHashedRefreshToken?: string;
+
+    createdAt?: Date;
+    updatedAt?: Date;
 }
 
 export const UserSchema = SchemaFactory.createForClass(User);
