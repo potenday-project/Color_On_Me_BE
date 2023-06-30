@@ -12,14 +12,14 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - name: Checkout code
-              uses: actions/checkout@v2
+              uses: actions/checkout@v3
               with:
                   ref: ${{ github.event.pull_request.head.ref }}
 
             - name: Install Node.js and NPM
-              uses: actions/setup-node@v2
+              uses: actions/setup-node@v3
               with:
-                  node-version: '18.x'
+                  node-version: 18
 
             - name: Connect to NCP
               if: github.event.pull_request.merged == true
@@ -34,5 +34,6 @@ jobs:
                       git checkout ${{ github.event.pull_request.base.ref }}
                       git pull origin ${{ github.event.pull_request.base.ref }}
                       npm i
+                      npm install pm2 -g
                       npm run build
                       pm2 reload all
