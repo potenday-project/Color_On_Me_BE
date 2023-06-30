@@ -22,9 +22,10 @@ export class JwtSocialKakaoStrategy extends PassportStrategy(Strategy, 'kakao') 
     async validate(accessToken: string, refreshToken: string, profile: any, done: any) {
         const { email } = profile._json.kakao_account;
         const { nickname, profile_image } = profile._json.properties;
+
         const user = await this.userService.findUserOrCreate({
             profileImageUrl: profile_image,
-            name: nickname,
+            nickname,
             email,
             signupType: SignupType['kakao'],
         });
