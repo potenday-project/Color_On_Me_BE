@@ -76,7 +76,7 @@ export class AuthController {
             httpOnly: true,
         });
 
-        res.status(200).redirect('https://coloronme.vercel.app/');
+        res.status(200).redirect('https://coloronme.site');
     }
 
     @Get('/login/kakao')
@@ -99,7 +99,7 @@ export class AuthController {
             httpOnly: true,
         });
 
-        res.status(200).redirect('https://coloronme.vercel.app/');
+        res.status(200).redirect('https://coloronme.site');
     }
 
     @Get('/logout')
@@ -110,7 +110,7 @@ export class AuthController {
         res.clearCookie('accessToken');
         res.clearCookie('refreshToken');
 
-        res.status(200).redirect('https://coloronme.vercel.app/login');
+        res.status(200).redirect('https://coloronme.site/login');
     }
 
     @Post('/refresh')
