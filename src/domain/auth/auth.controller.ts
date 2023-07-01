@@ -46,11 +46,13 @@ export class AuthController {
             secure: true,
             sameSite: 'none',
             httpOnly: true,
+            domain: '.coloronme.site',
         });
         res.cookie('refreshToken', jwtRefreshToken, {
             secure: true,
             sameSite: 'none',
             httpOnly: true,
+            domain: '.coloronme.site',
         });
 
         return res.sendStatus(200);
@@ -92,11 +94,13 @@ export class AuthController {
             secure: true,
             sameSite: 'none',
             httpOnly: true,
+            domain: '.coloronme.site',
         });
         res.cookie('refreshToken', jwtRefreshToken, {
             secure: true,
             sameSite: 'none',
             httpOnly: true,
+            domain: '.coloronme.site',
         });
 
         res.status(200).redirect('https://coloronme.site');
@@ -110,7 +114,7 @@ export class AuthController {
         res.clearCookie('accessToken');
         res.clearCookie('refreshToken');
 
-        res.status(200).redirect('https://coloronme.site/login');
+        res.status(200).redirect('https://www.coloronme.site/login');
     }
 
     @Post('/refresh')
@@ -129,11 +133,13 @@ export class AuthController {
             secure: true,
             sameSite: 'none',
             httpOnly: true,
+            domain: '.coloronme.site',
         });
         res.cookie('refreshToken', jwtRefreshToken, {
             secure: true,
             sameSite: 'none',
             httpOnly: true,
+            domain: '.coloronme.site',
         });
 
         res.sendStatus(201);
