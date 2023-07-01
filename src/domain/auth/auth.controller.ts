@@ -114,7 +114,7 @@ export class AuthController {
         res.clearCookie('accessToken');
         res.clearCookie('refreshToken');
 
-        res.status(200).redirect('https://www.coloronme.site/login');
+        res.sendStatus(200);
     }
 
     @Post('/refresh')
