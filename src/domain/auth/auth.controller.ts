@@ -42,8 +42,16 @@ export class AuthController {
         const jwtAccessToken = await this.authService.createAccessToken(user._id);
         const jwtRefreshToken = await this.authService.createRefreshToken(user._id);
 
-        res.cookie('accessToken', jwtAccessToken);
-        res.cookie('refreshToken', jwtRefreshToken);
+        res.cookie('accessToken', jwtAccessToken, {
+            secure: true,
+            sameSite: 'none',
+            httpOnly: true,
+        });
+        res.cookie('refreshToken', jwtRefreshToken, {
+            secure: true,
+            sameSite: 'none',
+            httpOnly: true,
+        });
 
         return res.sendStatus(200);
     }
@@ -57,8 +65,16 @@ export class AuthController {
     async loginNaverCallback(@Req() req, @Res() res: Response) {
         const { jwtAccessToken, jwtRefreshToken } = req.user;
 
-        res.cookie('accessToken', jwtAccessToken);
-        res.cookie('refreshToken', jwtRefreshToken);
+        res.cookie('accessToken', jwtAccessToken, {
+            secure: true,
+            sameSite: 'none',
+            httpOnly: true,
+        });
+        res.cookie('refreshToken', jwtRefreshToken, {
+            secure: true,
+            sameSite: 'none',
+            httpOnly: true,
+        });
 
         res.status(200).redirect('http://localhost:3000/');
     }
@@ -72,8 +88,16 @@ export class AuthController {
     async loginKakaoCallback(@Req() req, @Res() res: Response) {
         const { jwtAccessToken, jwtRefreshToken } = req.user;
 
-        res.cookie('accessToken', jwtAccessToken);
-        res.cookie('refreshToken', jwtRefreshToken);
+        res.cookie('accessToken', jwtAccessToken, {
+            secure: true,
+            sameSite: 'none',
+            httpOnly: true,
+        });
+        res.cookie('refreshToken', jwtRefreshToken, {
+            secure: true,
+            sameSite: 'none',
+            httpOnly: true,
+        });
 
         res.status(200).redirect('https://color-on-me-fe.vercel.app/');
     }
@@ -101,8 +125,16 @@ export class AuthController {
         const jwtAccessToken = await this.authService.createAccessToken(userId);
         const jwtRefreshToken = await this.authService.createRefreshToken(userId);
 
-        res.cookie('accessToken', jwtAccessToken);
-        res.cookie('refreshToken', jwtRefreshToken);
+        res.cookie('accessToken', jwtAccessToken, {
+            secure: true,
+            sameSite: 'none',
+            httpOnly: true,
+        });
+        res.cookie('refreshToken', jwtRefreshToken, {
+            secure: true,
+            sameSite: 'none',
+            httpOnly: true,
+        });
 
         res.sendStatus(201);
     }
