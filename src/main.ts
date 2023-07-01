@@ -7,6 +7,11 @@ import { ValidationPipe } from '@nestjs/common';
 async function bootstrap() {
     const app = await NestFactory.create(AppModule);
 
+    app.enableCors({
+        origin: ['https://coloronme.vercel.app'],
+        credentials: true,
+    });
+
     app.use(cookieParser());
     app.useGlobalPipes(new ValidationPipe());
 
@@ -17,11 +22,6 @@ async function bootstrap() {
 
     const document = SwaggerModule.createDocument(app, swaggerConfig);
     SwaggerModule.setup('api', app, document);
-
-    app.enableCors({
-        origin: ['https://coloronme.vercel.app'],
-        credentials: true,
-    });
 
     await app.listen(8080);
 }
