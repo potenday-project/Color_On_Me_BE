@@ -1,4 +1,4 @@
-name: Deploy to NCP
+name: Deploy to EC2
 
 on:
     pull_request:
@@ -21,19 +21,17 @@ jobs:
               with:
                   node-version: 18
 
-            - name: Connect to NCP
+            - name: Connect to EC2
               if: github.event.pull_request.merged == true
               uses: appleboy/ssh-action@v0.1.10
               with:
                   host: ${{ secrets.HOST }}
                   username: ${{ secrets.USERNAME }}
-                  password: ${{ secrets.PASSWORD }}
+                  key: ${{ secrets.PRIVATE_KEY }}
                   port: ${{ secrets.PORT }}
                   script: |
                       cd Color_On_Me_BE
                       git checkout ${{ github.event.pull_request.base.ref }}
                       git pull origin ${{ github.event.pull_request.base.ref }}
                       npm i
-                      npm install pm2 -g
-                      npm run build
                       pm2 reload all
