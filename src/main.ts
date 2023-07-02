@@ -8,7 +8,7 @@ async function bootstrap() {
     const app = await NestFactory.create(AppModule);
 
     app.enableCors({
-        origin: ['https://coloronme.vercel.app'],
+        origin: ['https://coloronme.site'],
         credentials: true,
     });
 

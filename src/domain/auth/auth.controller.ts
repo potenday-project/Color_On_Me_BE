@@ -46,13 +46,13 @@ export class AuthController {
             secure: true,
             sameSite: 'none',
             httpOnly: true,
-            domain: '.coloronme.vercel.app',
+            domain: '.coloronme.site',
         });
         res.cookie('refreshToken', jwtRefreshToken, {
             secure: true,
             sameSite: 'none',
             httpOnly: true,
-            domain: '.coloronme.vercel.app',
+            domain: '.coloronme.site',
         });
 
         return res.sendStatus(200);
@@ -133,13 +133,13 @@ export class AuthController {
             secure: true,
             sameSite: 'none',
             httpOnly: true,
-            domain: '.coloronme.vercel.app',
+            domain: '.coloronme.site',
         });
         res.cookie('refreshToken', jwtRefreshToken, {
             secure: true,
             sameSite: 'none',
             httpOnly: true,
-            domain: '.coloronme.vercel.app',
+            domain: '.coloronme.site',
         });
 
         res.sendStatus(201);
