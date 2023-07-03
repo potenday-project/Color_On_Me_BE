@@ -1,73 +1,72 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
-</p>
+## 🎉안녕하세요 컬러온미(a.k.a. COLORONME) 개발팀 입니다!
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+<div style="display: flex; justify-content: center; text-align: center;">
+    <figure style="width: 32%; margin: 0 1%;">
+        <img src="https://avatars.githubusercontent.com/u/86206374?v=4" width="100%" alt="">
+        <figcaption>FE개발자 이지원</figcaption>
+    </figure>
+    <figure style="width: 32%; margin: 0 1%;">
+        <img src="https://phinf.pstatic.net/contact/20200312_225/1583970230140imTW5_JPEG/KakaoTalk_20200311_132342140.jpg?type=s160" width="100%">
+        <figcaption>BE개발자 이봄결</figcaption>
+    </figure>
+    <figure style="width: 32%; margin: 0 1%;">
+        <img src="https://avatars.githubusercontent.com/u/64995762?v=4" width="100%">
+        <figcaption>BE개발자 장빈</figcaption>
+    </figure>
+</div>
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+<br>
+<br>
 
-## Description
+## 😮 컬러온미?
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+---
 
-## Installation
+<div style="display: flex; justify-content: center; text-align: center;">
+  <figure style="width: 32%; margin: 0 1%;">
+    <img src="https://user-images.githubusercontent.com/69799645/250413886-519e70bd-e6e1-4fc5-b8cb-c67c56c3f38d.png" width="100%">
+    <figcaption>컬러온미 아이콘</figcaption>
+  </figure>
+</div>
 
-```bash
-$ npm install
-```
+<br>
 
-## Running the app
+-   컬러온미는 **자신의 퍼스널 컬러를 편리한 색상휠로 확인**할 수 있는 서비스에요!
+-   퍼스널 컬러 진단 후 종이나, pdf로 제공되는 진단서가 많이 불편했어요..
+-   진단서에는 너무 많은 정보들이 있어서 한눈에 보기에도 어렵고 화장품이나 옷을 살때 활용하기가 힘들었어요...
+-   그래서 **핸드폰으로, 필요한 정보만, 간단하게 확인**할 수 있는 서비스를 개발했어요!😎
 
-```bash
-# development
-$ npm run start
+<br>
+<br>
 
-# watch mode
-$ npm run start:dev
+## 🛠 어떤 기능이 있나요?
 
-# production mode
-$ npm run start:prod
-```
+---
 
-## Test
+### 1. 퍼스널 컬러 선택
 
-```bash
-# unit tests
-$ npm run test
+-   퍼스널 컬러를 몰라도 괜찮아요 😁
+-   궁굼했던 퍼스널 컬러나, 주변에서 들었던 퍼스널 컬러를 선택해 주세요!
+<div style="display: flex; justify-content: center; text-align: center;">
+  <figure style="width: 32%; margin: 0 1%;">
+    <img src="https://user-images.githubusercontent.com/69799645/250418974-c366084b-10a6-4487-b2f2-24c91e1b416f.png" width="100%">
+  </figure>
+</div>
 
-# e2e tests
-$ npm run test:e2e
+### 2. 컬러 휠 돌리기
 
-# test coverage
-$ npm run test:cov
-```
+-   대표 퍼스널 컬러 색상을 간편하게 휠로 돌려서 확인해요!
+<div style="display: flex; justify-content: center; text-align: center;">
+  <figure style="width: 32%; margin: 0 1%;">
+    <img src="https://user-images.githubusercontent.com/69799645/250419301-5fa9ab17-ca3f-43a3-b28c-dd3bd98ec070.png" width="100%">
+  </figure>
+</div>
 
-## Support
+### 3. 색상 크게보기
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
-
-## Stay in touch
-
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
-
-## License
-
-Nest is [MIT licensed](LICENSE).
+-   색상만 간단하게 보고싶으신가요?! 색상을 눌러주세요! 그러면 큰 화면으로 등장!
+<div style="display: flex; justify-content: center; text-align: center;">
+  <figure style="width: 32%; margin: 0 1%;">
+    <img src="https://user-images.githubusercontent.com/69799645/250419449-98828959-f6af-4767-bdf3-6adc79429ade.png" width="100%">
+  </figure>
+</div>
