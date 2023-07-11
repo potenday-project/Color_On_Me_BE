@@ -1,19 +1,16 @@
 ## 🎉안녕하세요 컬러온미(a.k.a. COLORONME) 개발팀 입니다!
 
-<div style="display: flex; justify-content: center; text-align: center;">
-    <figure style="width: 32%; margin: 0 1%;">
-        <img src="https://avatars.githubusercontent.com/u/86206374?v=4" width="100%" alt="">
-        <figcaption>FE개발자 이지원</figcaption>
-    </figure>
-    <figure style="width: 32%; margin: 0 1%;">
-        <img src="https://phinf.pstatic.net/contact/20200312_225/1583970230140imTW5_JPEG/KakaoTalk_20200311_132342140.jpg?type=s160" width="100%">
-        <figcaption>BE개발자 이봄결</figcaption>
-    </figure>
-    <figure style="width: 32%; margin: 0 1%;">
-        <img src="https://avatars.githubusercontent.com/u/64995762?v=4" width="100%">
-        <figcaption>BE개발자 장빈</figcaption>
-    </figure>
-</div>
+
+
+| FE개발자<br/>이지원                                                                                           | BE개발자<br/>이봄결                                                                                              | BE개발자<br/>장빈                                                                                           |
+| --------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- |
+| <img src="https://avatars.githubusercontent.com/u/86206374?v=4" width="100" height="100" alt=""> | <img src="https://phinf.pstatic.net/contact/20200312_225/1583970230140imTW5_JPEG/KakaoTalk_20200311_132342140.jpg?type=s160" width="100" height="100"> | <img src="https://avatars.githubusercontent.com/u/64995762?v=4" width="100" height="100"> |
+| [365support](https://github.com/365support)                                                                     | [BreezeBM](https://github.com/BreezeBM)                                                                    | [go-tiger](https://github.com/go-tiger) |
+
+
+
+
+
 
 <br>
 <br>
