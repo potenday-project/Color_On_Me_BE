@@ -3,7 +3,7 @@
 
 
 | FE개발자<br/>이지원                                                                                           | BE개발자<br/>이봄결                                                                                              | BE개발자<br/>장빈                                                                                           |
-| --------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- |
+| :---------------------------------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------------------------------------------:|
 | <img src="https://avatars.githubusercontent.com/u/86206374?v=4" width="100" height="100" alt=""> | <img src="https://phinf.pstatic.net/contact/20200312_225/1583970230140imTW5_JPEG/KakaoTalk_20200311_132342140.jpg?type=s160" width="100" height="100"> | <img src="https://avatars.githubusercontent.com/u/64995762?v=4" width="100" height="100"> |
 | [365support](https://github.com/365support)                                                                     | [BreezeBM](https://github.com/BreezeBM)                                                                    | [go-tiger](https://github.com/go-tiger) |
 
@@ -21,7 +21,7 @@
 
 <div style="display: flex; justify-content: center; text-align: center;">
   <figure style="width: 32%; margin: 0 1%;">
-    <img src="https://user-images.githubusercontent.com/69799645/250413886-519e70bd-e6e1-4fc5-b8cb-c67c56c3f38d.png" width="100%">
+    <img src="https://user-images.githubusercontent.com/69799645/250413886-519e70bd-e6e1-4fc5-b8cb-c67c56c3f38d.png" width="30%" height="30%">
     <figcaption>컬러온미 아이콘</figcaption>
   </figure>
 </div>
@@ -46,7 +46,7 @@
 -   궁굼했던 퍼스널 컬러나, 주변에서 들었던 퍼스널 컬러를 선택해 주세요!
 <div style="display: flex; justify-content: center; text-align: center;">
   <figure style="width: 32%; margin: 0 1%;">
-    <img src="https://user-images.githubusercontent.com/69799645/250418974-c366084b-10a6-4487-b2f2-24c91e1b416f.png" width="100%">
+    <img src="https://user-images.githubusercontent.com/69799645/250418974-c366084b-10a6-4487-b2f2-24c91e1b416f.png" width="30%" height="10%">
   </figure>
 </div>
 
@@ -55,7 +55,7 @@
 -   대표 퍼스널 컬러 색상을 간편하게 휠로 돌려서 확인해요!
 <div style="display: flex; justify-content: center; text-align: center;">
   <figure style="width: 32%; margin: 0 1%;">
-    <img src="https://user-images.githubusercontent.com/69799645/250419301-5fa9ab17-ca3f-43a3-b28c-dd3bd98ec070.png" width="100%">
+    <img src="https://user-images.githubusercontent.com/69799645/250419301-5fa9ab17-ca3f-43a3-b28c-dd3bd98ec070.png" width="30%" height="10%">
   </figure>
 </div>
 
@@ -64,6 +64,6 @@
 -   색상만 간단하게 보고싶으신가요?! 색상을 눌러주세요! 그러면 큰 화면으로 등장!
 <div style="display: flex; justify-content: center; text-align: center;">
   <figure style="width: 32%; margin: 0 1%;">
-    <img src="https://user-images.githubusercontent.com/69799645/250419449-98828959-f6af-4767-bdf3-6adc79429ade.png" width="100%">
+    <img src="https://user-images.githubusercontent.com/69799645/250419449-98828959-f6af-4767-bdf3-6adc79429ade.png" width="30%" height="10%">
   </figure>
 </div>
